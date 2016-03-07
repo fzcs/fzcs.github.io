@@ -67,7 +67,7 @@
 <meta property="og:description" content="使用 Swift 进行 iOS 开发处理网络请求一定会用到 Alamofire
 示例代码无比简洁
 1234Alamofire.request(.GET, &quot;https://www.baidu.com&quot;)    .responseString &amp;#123; response in        print(&quot;Response String: \(response.result.value!)&quot;)&amp;#">
-<meta property="og:updated_time" content="2016-03-07T09:42:26.000Z">
+<meta property="og:updated_time" content="2016-03-07T10:05:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alamofire初探">
 <meta name="twitter:description" content="使用 Swift 进行 iOS 开发处理网络请求一定会用到 Alamofire
@@ -263,6 +263,7 @@
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(<span class="type">Method</span>.<span class="type">GET</span>, <span class="string">"https://www.baidu.com"</span>).responseString(</span><br><span class="line">    completionHandler: &#123;</span><br><span class="line">        (res: <span class="type">Response</span>&lt;<span class="type">String</span>, <span class="type">NSError</span>&gt;) -&gt; <span class="type">Void</span> <span class="keyword">in</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Response String: <span class="subst">\(res.result.value!)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>由于闭包可以 <code>根据上下文推断类型（Inferring Type From Context）</code> 并且 返回值为 Void 时可以省略 <code>-&gt; Void</code> ,所以可以继续简化为如下写法</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Alamofire</span>.request(<span class="type">Method</span>.<span class="type">GET</span>, <span class="string">"https://www.baidu.com"</span>).responseString(</span><br><span class="line">    completionHandler: &#123;</span><br><span class="line">        res <span class="keyword">in</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">"Response String: <span class="subst">\(res.result.value!)</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>再由于 <code>尾随闭包（Trailing Closures）</code> 特性,即可简化成示例代码的写法</p>
 
       
     </div>
